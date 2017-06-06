@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>170606</title>
+    <style>
+        #canvas {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>170606 HTML5 Drawing Primitive Shapes</h2>
+    <canvas id="canvas">Canvas is not supported</canvas>
+    <script>
+        window.addEventListener("load", draw, true);
+
+        function draw() {
+            // Retrieve the canvas element and set its CSS style
+            var canvas = document.getElementById("canvas");
+            canvas.width = 500;
+            canvas.height = 300;
+            // Get the 2D drawing context for the canvas element
+            var context = canvas.getContext("2d");
+
+            // Draw a Rectangle using the rect primitive
+            context.fillStyle = "rgb(0, 255, 0)";
+            context.fillRect(30, 80, 100, 120); // x, y, width, height
+            context.strokeStyle = "#0000FF";
+            context.strokeRect(30, 80, 100, 120);
+
+            // Draw a triangle using path
+            context.beginPath();
+            context.moveTo(150, 50);
+            context.lineTo(200, 180);
+            context.lineTo(100, 180);
+            context.closePath();
+            context.fillStyle = "rgba(0, 0, 255, 0.5)"; // transparent
+            context.fill();
+            context.stroke();
+
+            // Fill a circle using path
+            context.beginPath();
+            // centerX, centerY, radius, beginAngle, engAngle, antiClockwise
+            context.arc(220, 180, 50, 0, Math.PI * 2, true);
+            context.fillStyle = "red";
+            context.fill(); // closePath() implicitly
+        }
+    </script>
+</body>
+
+</html>
