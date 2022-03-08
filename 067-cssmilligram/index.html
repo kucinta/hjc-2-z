@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Milligram CSS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Milligram CSS -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Slab">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.0/milligram.css">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <style>
+        body {
+            font-family: 'Roboto Slab', serif;
+        }
+
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+
+        div.box2 {
+            background-color: lightgrey;
+            width: 500px;
+            border: 15px solid green;
+            padding: 20px;
+            margin: 10px;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+            /*position: absolute;*/
+            margin: 10;
+            padding: 3;
+            border: 5px solid silver;
+        }
+
+        .content {
+        display: block;
+        min-height: 888px;
+        width: 100%;
+    }
+
+        @media screen and (min-width: 550px) {
+
+
+	.container {
+		display: flex;
+		max-width: 1200px;
+    }
+    .box2 {
+        order: 1;
+    }
+    .box1 {
+        order: 2;
+    }
+
+
+    .box3 {
+        order: 3
+    }
+
+
+}
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="column box1" align=center>
+                <p>
+                    Box 1 = Using <strong>leaflet</strong>!
+                </p>
+                <div id="map"></div>
+            </div>
+            <div class="column box2" align=center>
+                <h1 class="title">Box 2</h1>
+                <a class="button" href="#">Button</a>
+            </div>
+
+            <div class="column box3">
+                <h1 class="title">Box 3</h1>
+                <button class="button button-outline">Button</button>
+            </div>
+        </div>
+
+    </div>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p align=center>
+                The website content
+                is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+            </p>
+        </div>
+    </footer>
+
+
+    <script>
+        var map = L.map('map', {
+            zoomControl: true
+        }).setView([1.409552, 103.895892], 18);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        L.marker([1.409552, 103.895892]).addTo(map)
+            .bindPopup('Hi, I am here.<br>Hello world.')
+            .openPopup();
+    </script>
+
+</body>
+
+</html>
