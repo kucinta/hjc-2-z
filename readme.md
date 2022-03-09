@@ -14,8 +14,8 @@ A GitHub account for storing and rendering static HTML, CSS and JS codes. Downlo
 
 ## Use GitHub Pages to "Demo" HTML/CSS/JS codes
 
-* On the project root: <https://kucina.github.io>
-* Or on <https://github.kucinta.com> (remote backup)
+* On the project root: <https://kucinta.github.io>
+* Or on <https://github.kucinta.com/hjc-2-z> (remote backup)
 
 > GitHub Pages is designed to host project pages directly from a GitHub repository. GitHub Pages is a static site hosting service and doesn't support server-side code such as, PHP, Ruby, or Python. **Other Limitations:** Github Pages does not permits data to be written back to the host by the javascripts.
 
