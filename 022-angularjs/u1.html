@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+<body ng-app="myApp">
+
+    <p><a href="#!home">Main</a></p>
+
+    <a href="#!red">Red</a>
+    <a href="#!green">Green</a>
+    <a href="#!blue">Blue</a>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/home", {
+                    templateUrl: "u1m0.html"
+                })
+                .when("/red", {
+                    templateUrl: "u1m1.html"
+                })
+                .when("/green", {
+                    templateUrl: "u1m2.html"
+                })
+                .when("/blue", {
+                    templateUrl: "u1m3.html"
+                })
+                .otherwise({
+                    redirectTo: '/home'
+                });
+        });
+    </script>
+
+    <p>Click on the links to navigate to respective htmls</p>
+
+</body>
+
+</html>
