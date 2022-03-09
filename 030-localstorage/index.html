@@ -1,48 +1,135 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Geolocation</title>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+    <title>150323/3/iu1.html</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        footer,
+        section,
+        header,
+        aside,
+        figure {
+            display: block;
+        }
+
+        body {
+            padding: 2em;
+            font-size: 15px;
+            font-family: helvetica, arial, sans-serif;
+        }
+
+        form {
+            width: 280px;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            padding: 5px 10px;
+        }
+
+        #newitem {
+            width: 160px;
+        }
+
+        #todolist {
+            width: 280px;
+            margin: 10px 10px;
+        }
+
+        #todolist li {
+            border-radius: 2px;
+            list-style: none;
+            background: #eee;
+            padding: 5px 10px;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        #todolist li:nth-child(2n) {
+            background: #ccc;
+        }
+
+        #todolist li:hover:after,
+        #todolist li.done:after {
+            content: '✔';
+            color: #060;
+            position: absolute;
+            right: 5px;
+        }
+
+        #todolist li.done:hover:after {
+            content: 'x';
+            font-weight: bold;
+            color: #c00;
+            position: absolute;
+            right: 5px;
+        }
+    </style>
 </head>
-<script type="text/javascript" src="../vendors/zeelib/ze.console.js"></script>
 
 <body>
-    <textarea id="id_ConsoleLog" wrap="off" rows="15" style="width:98%;font-family:courier;overflow: scroll;"></textarea>
+    <header>
+        <h1>To Do : Local Storage</h1>
+    </header>
+    <section>
+        <ul id="todolist"></ul>
+        <form action="#" method="post">
+            <div>
+                <label for="itemlabel">Add item</label>
+                <input type="text" name="itemname" id="newitem" placeholder="new item" required>
+                <input type="submit" value="Add">
+            </div>
+        </form>
+    </section>
+    <footer>
+    </footer>
+
 </body>
 <script>
-    var myObj0 = {
-        "name": "John0",
-        "age": 30,
-        "city": "New York"
-    };
-    console.log(JSON.stringify(myObj0));
-    var myObj1 = {
-        "name": "John1",
-        "age": 31,
-        "city": "New England"
+    var myitem = document.querySelector('#todolist');
+    var form = document.querySelector('form');
+    var field = document.querySelector('#newitem');
+    // List
+    document.addEventListener('DOMContentLoaded', getLocalStorage, false);
+
+    function getLocalStorage() {
+        if (localStorage.myitemlist) {
+            myitem.innerHTML = localStorage.myitemlist;
+        }
     };
 
-    var finalObj = [];
-    finalObj.push(myObj0);
-    finalObj.push(myObj1);
-    //var finalObj = [myObj0, myObj1];
-    var myJSON = JSON.stringify(finalObj);
-    console.log("4:" + myJSON);
-    console.log(finalObj[0].name);
-    finalObj.push(myObj0);
-    myJSON = JSON.stringify(finalObj);
-    console.log("4:" + myJSON);
-    var x = finalObj.length - 1;
-    console.log(x + ":" + finalObj[x].name);
-    // slice 0,1 = first array in object
-    var xs = finalObj.slice(1, 2);
-    console.log(JSON.stringify(xs));
-    // array.splice(index, howmany, item1, ....., itemX)
-    console.log(JSON.stringify(finalObj));
-    var splicedItem=finalObj.splice(0, 2);
-    console.log(JSON.stringify(finalObj));
-    console.log(JSON.stringify(splicedItem));
+    // Add
+    form.addEventListener('submit', function(ev) {
+        myitem.innerHTML += '<li>' + field.value + '</li>';
+        saveitems();
+        field.value = '';
+        field.focus();
+        ev.preventDefault();
+    }, false);
+
+    // Edit & Remove
+    myitem.addEventListener('click', function(ev) {
+        var t = ev.target;
+        if (t.tagName === 'LI') {
+            if (t.classList.contains('done')) {
+                t.parentNode.removeChild(t);
+            } else {
+                t.classList.add('done');
+            }
+            saveitems();
+        };
+        ev.preventDefault();
+    }, false);
+
+    function saveitems() {
+        localStorage.myitemlist = myitem.innerHTML;
+    };
 </script>
 
 </html>
