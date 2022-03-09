@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>067 - cssvanila</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: "Lato", sans-serif;
+        }
+
+        img {
+            max-width: 100%
+        }
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .sidebar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+
+        @media screen and (max-width: 900px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: left;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .sidebar a {
+                text-align: center;
+                float: none;
+            }
+        }
+
+        /* Inside "content" Style */
+        .header {
+            background-color: #f1f1f1;
+            padding: 30px;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        /* Container for flexboxes */
+        .row {
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        /* Create three unequal columns that sits next to each other */
+        .column {
+            padding: 10px;
+            /*height: 300px;*/
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Left and right column */
+        .column.side {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        /* Middle column */
+        .column.middle {
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+        }
+
+        /* Style the footer */
+        .footer {
+            background-color: #f1f1f1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media (max-width: 600px) {
+            .row {
+                -webkit-flex-direction: column;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <a href="#home">[Home]</a>
+        <a href="#news">[UEN:200514534N]</a>
+        <a href="#contact" class="active">[UEN:T09LL1033B]</a>
+        <a href="#about">[DNS]</a>
+        <a href="#about">[VM Hosts]</a>
+        <a href="#about">[Quick Reference]</a>
+        <a href="#about">[TSY Log]</a>
+
+    </div>
+
+    <div class="content">
+        <h2>CSS Template using Flexbox</h2>
+        <p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the
+            columns will stack on top of each other. Resize the browser window to see the responsive effect.</p>
+        <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 eand earlier versions.</p>
+
+        <div class="header">
+            <header class="site-header site-header--compact">
+                <a href="/">
+                    <span class="site-header__logo logo logo--inverted">My Company</span>
+                </a>
+        
+                <div class="page-header">
+                    
+                    <nav class="nav nav--breadcrumb">
+                        <ul class="nav__items">
+                            <li class="nav__item">
+                                <a class="nav__link" href="">Home</a>
+                            </li>
+                            <li class="nav__item">
+                                <a class="nav__link" href="">Grand Pa</a>    
+                            </li>
+                            <li class="nav__item">
+                                <a class="nav__link" href="">Father</a>    
+                            </li>
+                        </ul>
+                        <!-- .breadcrumbs -->
+                    </nav>
+                    <h1 class="page-header__title">Articles</h1>
+                </div>
+            </header>
+        </div>
+
+        <div class="row">
+            <div class="column side" style="background-color:#aaa;">Column
+                <div class="resource resource--post">
+                    <div class="resource__image">
+                        <a href="getting-your-website-ready-for-apple-watch-os5/">
+                            <img src="assets/img/Apple-OS5-Watch-Webkit-800x460.jpg"
+                                class="attachment-post-standard size-post-standard wp-post-image" alt="" /> </a>
+                    </div>
+                    <div class="resource__content">
+                        <header class="resource__header">
+                            <h3 class="resource__title">
+                                <a href="getting-your-website-ready-for-apple-watch-os5/">Getting your website ready for
+                                    Apple Watch OS5</a>
+                            </h3>
+                            <date class="resource__meta">June 8th, 2018</date>
+                        </header>
+                        <div class="resource__body">
+                            <p>One of the biggest bits of news for web developers/designers like you and I is that
+                                WebKit
+                                was properly being ported across to the Apple Watch and as of Apple Watch OS5 you
+                                would be able to browse websites. Previously the email links inside of emails would
+                                ask users to move across to their phone/ipad/computer, [&hellip;]</p>
+                        </div>
+                        <footer class="resource__footer">
+                            <a href="getting-your-website-ready-for-apple-watch-os5/">Read more</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="column middle" style="background-color:#bbb;">Column In this example, we have created a header,
+                three unequal columns and a footer. On smaller screens, the columns will stack on top of each other.
+                Resize the browser window to see the responsive effect.
+
+                <div class="resource resource--post">
+                    <div class="resource__image">
+                        <a href="">
+                            <img src="assets/img/Progressive-WEb-Apps-and-Apple-800x460.png"
+                                class="attachment-post-standard size-post-standard wp-post-image" alt="" /> </a>
+                    </div>
+                    <div class="resource__content">
+                        <header class="resource__header">
+                            <h3 class="resource__title">
+                                <a href="altering-expectations-by-improving-pwa-on-ios/">Altering expectations by
+                                    improving PWA on iOS</a>
+                            </h3>
+                            <date class="resource__meta">July 31st, 2018</date>
+                        </header>
+                        <div class="resource__body">
+                            <p>In an article this week, Jeremy Keith shares the experience that Clearleft have had while
+                                designing and deploying the Virgin Holidays app onto mobile. If you have read anything
+                                that Jeremy has shared in the past year you will know that he&#8217;s is a huge fan
+                                of the Progressive App approach, in fact he&#8217;s even [&hellip;]</p>
+                        </div>
+                        <footer class="resource__footer">
+                            <a href="altering-expectations-by-improving-pwa-on-ios/">Read more</a>
+                        </footer>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="column side" style="background-color:#ccc;">Column
+                <div class="resource resource--post">
+                    <div class="resource__image">
+                        <a href="visual-studio-code-shortcuts-for-web-developers/">
+                            <img src="assets/img/VS-CODE-Web-Developer-Shortcuts-800x460.png"
+                                class="attachment-post-standard size-post-standard wp-post-image" alt="" /> </a>
+                    </div>
+                    <div class="resource__content">
+                        <header class="resource__header">
+                            <h3 class="resource__title">
+                                <a href="visual-studio-code-shortcuts-for-web-developers/">Visual Studio Code Shortcuts
+                                    for Web Developers</a>
+                            </h3>
+                            <date class="resource__meta">July 24th, 2018</date>
+                        </header>
+                        <div class="resource__body">
+                            <p>﻿This is a rolling article where new shortcuts will be added as I find them helpful.
+                                Formatting Code The code formatting is available in VS Code through the following
+                                shortcuts: On Windows Shift + Alt + F On Mac Shift + Option + F On Ubuntu Ctrl +
+                                Shift + I Alternatively, you can find [&hellip;]</p>
+                        </div>
+                        <footer class="resource__footer">
+                            <a href="visual-studio-code-shortcuts-for-web-developers/">Read more</a>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Footer</p>
+            <footer class="site-footer">
+                <nav class="nav nav--secondary">
+                    <ul class="nav__items">
+                        <li class="nav__item">
+                            <a href="/contact" class="nav__link">Get In Touch</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="/stay" class="nav__link">Stay In Touch
+                                <span class="icon icon--exit-arrow"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="nav nav--social">
+                    <ul class="nav__items">
+        
+                        <li class="nav__item">
+                            <a href="https://www.twitter.com/reswebdes" class="nav__link">
+                                <span class="icon icon--twitter"></span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="https://plus.google.com/u/0/+ResponsiveDesignWeekly" class="nav__link">
+                                <span class="icon icon--GPlus"></span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="https://www.facebook.com/responsivewebdesigns" class="nav__link">
+                                <span class="icon icon--facebook"></span>
+                            </a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="https://www.instagram.com/reswebdes" class="nav__link">
+                                <span class="icon icon--instagram"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <p class="site-footer__copyright">&copy; 2022. All rights reserved.
+                    </p>
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

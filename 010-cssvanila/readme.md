@@ -1,4 +1,4 @@
-Test https://eldus.github.io/802/
+Test https://kucinta.github.io/hjc-2-z/
 
 Learn CSS Grids
 

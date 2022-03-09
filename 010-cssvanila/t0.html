@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CSS Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    /* Style the header */
+    .header {
+      background-color: #f1f1f1;
+      padding: 30px;
+      text-align: center;
+      font-size: 35px;
+    }
+
+    /* Container for flexboxes */
+    .row {
+      display: -webkit-flex;
+      display: flex;
+    }
+
+    /* Create three unequal columns that sits next to each other */
+    .column {
+      padding: 10px;
+      /*height: 300px; */
+      /* Should be removed. Only for demonstration */
+    }
+
+    /* Left and right column */
+    .column.side {
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+    }
+
+    /* Middle column */
+    .column.middle {
+      -webkit-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+    }
+
+    /* Style the footer */
+    .footer {
+      background-color: #f1f1f1;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media (max-width: 600px) {
+
+
+      div.content {
+        margin-left: 0;
+      }
+
+      .row {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+      }
+    }
+
+    body {
+      margin: 0;
+    }
+
+    ul.main-menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    li.main-menu {
+      float: left;
+    }
+
+    li.main-menu a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 6px 6px;
+      text-decoration: none;
+    }
+
+    li.main-menu a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    .active {
+      background-color: #4CAF50;
+    }
+
+    .sidenav {
+      display: none;
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    .clear {
+      clear: both;
+    }
+
+    #tag-search {
+      display: none;
+    }
+
+    .search-icon {
+      padding: 7px;
+      cursor: pointer;
+      background-color: #EEE;
+      float: right;
+    }
+
+    .search-box {
+      position: relative;
+      background-color: #EEE;
+      padding: 15px;
+      clear: both;
+      transform: scale(0);
+      transform-origin: 100% 0%;
+      display: none;
+    }
+
+    .search-box i {
+      position: absolute;
+      font-size: 30px;
+      vertical-align: middle;
+      padding: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      height: 60px;
+      font-size: 30px;
+      background-color: #EEE;
+      border: none;
+      padding-left: 70px;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    #tag-search:checked+div.search-box {
+      display: block;
+      animation: trans-in 1s ease;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes trans-in {
+      from {
+        transform: scaleY(0);
+      }
+
+      to {
+        transform: scaleY(1);
+      }
+    }
+
+
+    }
+  </style>
+</head>
+
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+    <a href="#">Contact1</a>
+    <a href="#">Contact2</a>
+    <a href="#">Contact3</a>
+    <a href="#">Contact4</a>
+    <a href="#">Contact5</a>
+    <a href="#">Contact6</a>
+    <a href="#">Contact7</a>
+    <a href="#">Contact8</a>
+    <a href="#">Contact9</a>
+  </div>
+  <div class="content">
+    <ul class="main-menu">
+      <li class="main-menu"><span style="font-size:25px;cursor:pointer;color: rgb(254, 254, 254);"
+          onclick="openNav()">&#9776;</span></li>
+      <li class="main-menu"><a class="active" href="#home">Home</a></li>
+      <li class="main-menu"><a href="#news">News</a></li>
+      <li class="main-menu"><a href="#contact">Contact</a></li>
+      <li class="main-menu" style="float:right">
+        <label class="fa fa-search search-icon" for="tag-search"> Search</label>
+        <div class="clear"></div>
+        <input type="checkbox" id="tag-search" />
+        <div class="search-box"> <i id="myBtn" class="fa fa-search" onclick="javascript:alert('Hello World!')"></i>
+          <input id="myInput" type="text" placeholder="Search me..." />
+        </div>
+      </li>
+    </ul>
+    <div style="padding:10px;margin-top:30px;background-color:#c8caca;">
+      <div class="header">
+        <h2>Header</h2>
+
+      </div>
+
+      <div class="row">
+        <div class="column side" style="background-color:#aaa;">Column 1
+          <h1 id="top">Smooth Page Scrolling</h1>
+          <ul>
+            <li><a href="#two">Scroll to Section Two</a></li>
+            <li><a href="#end">Scroll to the end</a></li>
+          </ul>
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+            tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+            semper. Aenean ultricies mi vitae est.
+            Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
+            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+            eros ipsum rutrum orci, sagittis tempus
+            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
+            tincidunt quis, accumsan porttitor,
+            facilisis luctus, metus</p>
+        </div>
+        <div class="column middle" style="background-color:#bbb;">Column 2
+          <br>In this example, we have created a header, three
+          unequal columns and a footer. On smaller screens, the columns will stack on top of each other. Resize the
+          browser
+          window to see the responsive effect.
+          <p><a href="#top">Top</a></p>
+        </div>
+        <div id="two" class="column side" style="background-color:#ccc;">Column
+
+          <h2>Section Two</h2>
+          <p>quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+            Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper
+            pharetra. Vestibulum erat wisi, condimentum
+            sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum
+            rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis.
+            Praesent dapibus, neque id cursus faucibus,
+            tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt
+            quis, accumsan porttitor, facilisis luctus, metus</p>
+
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+            tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+            semper. Aenean ultricies mi vitae est.
+            Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
+            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+            eros ipsum rutrum orci, sagittis tempus
+            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
+            tincidunt quis, accumsan porttitor,
+            facilisis luctus, metus</p>
+
+          <p id=end><a href="#top">Top</a></p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column side" style="background-color:#aaa;">Column 1
+          <h1 id="top">Smooth Page Scrolling</h1>
+          <ul>
+            <li><a href="#two">Scroll to Section Two</a></li>
+            <li><a href="#end">Scroll to the end</a></li>
+          </ul>
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+            tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
+            semper. Aenean ultricies mi vitae est.
+            Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi,
+            condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum,
+            eros ipsum rutrum orci, sagittis tempus
+            lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus
+            faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi,
+            tincidunt quis, accumsan porttitor,
+            facilisis luctus, metus</p>
+        </div>
+      </div>
+      <div class="footer">
+        <p>Footer</p>
+        <h2>CSS Template using Flexbox</h2>
+        <p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the
+          columns
+          will stack on top of each other. Resize the browser window to see the responsive effect.</p>
+        <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 eand earlier versions.</p>
+
+      </div>
+    </div>
+  </div>
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.display = "block";
+
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.display = "none";
+    }
+    var input = document.getElementById("myInput");
+    input.addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        event.preventDefault();
+        document.getElementById("myBtn").click();
+      }
+    });
+  </script>
+</body>
+
+</html>
+Reference:<br>
+https://www.w3schools.com/css/tryit.asp?filename=trycss_template2_float
