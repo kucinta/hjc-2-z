@@ -19,63 +19,13 @@
             max-width: 100%
         }
 
-        .sidebar {
-            margin: 0;
-            padding: 0;
-            width: 200px;
-            background-color: #f1f1f1;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-        }
-
-        .sidebar a {
-            display: block;
-            color: black;
-            padding: 16px;
-            text-decoration: none;
-        }
-
-        .sidebar a.active {
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        .sidebar a:hover:not(.active) {
-            background-color: #555;
-            color: white;
-        }
-
+        /* Inside "content" Style */
         div.content {
             margin-left: 200px;
             padding: 1px 16px;
-            height: 1000px;
+            height: 768px;
         }
 
-        @media screen and (max-width: 900px) {
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-
-            .sidebar a {
-                float: left;
-            }
-
-            div.content {
-                margin-left: 0;
-            }
-        }
-
-        @media screen and (max-width: 450px) {
-            .sidebar a {
-                text-align: center;
-                float: none;
-            }
-        }
-
-        /* Inside "content" Style */
         .header {
             background-color: #f1f1f1;
             padding: 30px;
@@ -117,8 +67,63 @@
             text-align: center;
         }
 
-        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-        @media (max-width: 600px) {
+        /* Default Responsive layout - widest - all side by side */
+
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            position: fixed;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .sidebar a {
+            display: block;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .sidebar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .sidebar a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+        /* Responsive layout - menu = only stacked */
+
+        @media screen and (max-width: 1000px) {
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: left;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+
+        }
+
+        /* Responsive layout - smallest - menu = hamburger stacked */
+        @media screen and (max-width: 660px) {
+            .sidebar a {
+                text-align: center;
+                float: none;
+            }
+
+            /* also disable wide flex, content also stacked */
             .row {
                 -webkit-flex-direction: column;
                 flex-direction: column;
@@ -126,44 +131,34 @@
         }
     </style>
 </head>
-
 <body>
-
     <div class="sidebar">
         <a href="#home">[Home]</a>
-        <a href="#news">[UEN:200514534N]</a>
-        <a href="#contact" class="active">[UEN:T09LL1033B]</a>
-        <a href="#about">[DNS]</a>
+        <a href="#about" class="active">[DNS]</a>
         <a href="#about">[VM Hosts]</a>
         <a href="#about">[Quick Reference]</a>
-        <a href="#about">[TSY Log]</a>
-
     </div>
-
     <div class="content">
         <h2>CSS Template using Flexbox</h2>
         <p>In this example, we have created a header, three unequal columns and a footer. On smaller screens, the
             columns will stack on top of each other. Resize the browser window to see the responsive effect.</p>
         <p><strong>Note:</strong> Flexbox is not supported in Internet Explorer 10 eand earlier versions.</p>
-
         <div class="header">
             <header class="site-header site-header--compact">
                 <a href="/">
                     <span class="site-header__logo logo logo--inverted">My Company</span>
                 </a>
-        
                 <div class="page-header">
-                    
                     <nav class="nav nav--breadcrumb">
                         <ul class="nav__items">
                             <li class="nav__item">
                                 <a class="nav__link" href="">Home</a>
                             </li>
                             <li class="nav__item">
-                                <a class="nav__link" href="">Grand Pa</a>    
+                                <a class="nav__link" href="">Grand Pa</a>
                             </li>
                             <li class="nav__item">
-                                <a class="nav__link" href="">Father</a>    
+                                <a class="nav__link" href="">Father</a>
                             </li>
                         </ul>
                         <!-- .breadcrumbs -->
@@ -172,7 +167,6 @@
                 </div>
             </header>
         </div>
-
         <div class="row">
             <div class="column side" style="background-color:#aaa;">Column
                 <div class="resource resource--post">
@@ -233,7 +227,6 @@
                 </div>
 
             </div>
-
             <div class="column side" style="background-color:#ccc;">Column
                 <div class="resource resource--post">
                     <div class="resource__image">
@@ -262,7 +255,6 @@
                 </div>
             </div>
         </div>
-
         <div class="footer">
             <p>Footer</p>
             <footer class="site-footer">
@@ -280,7 +272,7 @@
                 </nav>
                 <nav class="nav nav--social">
                     <ul class="nav__items">
-        
+
                         <li class="nav__item">
                             <a href="https://www.twitter.com/reswebdes" class="nav__link">
                                 <span class="icon icon--twitter"></span>
@@ -304,11 +296,9 @@
                     </ul>
                 </nav>
                 <p class="site-footer__copyright">&copy; 2022. All rights reserved.
-                    </p>
+                </p>
             </footer>
         </div>
     </div>
-
 </body>
-
 </html>

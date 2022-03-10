@@ -1,191 +1,232 @@
-.extra-large-text, .section__title, .section-summaries__title, .nav--primary .nav__title, .page-header__title, .entry__body > h2, .post__body > h2, .post__body .blockquote--full-width {
-    font-size: 21px;
-    font-size: 1.5rem;
-    /**
+.extra-large-text,
+.section__title,
+.section-summaries__title,
+.nav--primary .nav__title,
+.page-header__title,
+.entry__body>h2,
+.post__body>h2,
+.post__body .blockquote--full-width {
+  font-size: 21px;
+  font-size: 1.5rem;
+  /**
      * Media query adjustments.
      */
-  }
+}
 
-  .logo--inverted {
-    background-color: #CC4E46;
-    background-image: url(assets/img/logo.svg);
-  }
+.logo--inverted {
+  background-color: #CC4E46;
+  background-image: url(assets/img/logo.svg);
+}
 
-  .logo {
-    background: #FFFFFF url(assets/img/logo--red.svg) center no-repeat;
-    background-size: 70% auto;
-    border-radius: 50px;
-    display: block;
-    height: 50px;
-    padding: 25px;
-    text-indent: -9999px;
-    width: 50px;
-    /**
+.logo {
+  background: #FFFFFF url(assets/img/logo--red.svg) center no-repeat;
+  background-size: 70% auto;
+  border-radius: 50px;
+  display: block;
+  height: 50px;
+  padding: 25px;
+  text-indent: -9999px;
+  width: 50px;
+  /**
      * Media query adjustments.
      *
      * Logo progressively scales up at higher resolutions.
      */
-    /**
+  /**
      * Media query adjustments.
      */
-  }
-  .logo a {
-    display: block;
-    height: 118px;
-    width: 118px;
-  }
+}
 
-  .nav--breadcrumb {
-    font-size: 12px;
-    /* [4] */
-  }
-  .nav--breadcrumb .nav__item {
-    color: #000000;
-    padding-right: 26px;
-    position: relative;
-  }
-  .nav--breadcrumb .nav__item:after {
-    display: block;
-    content: "\003e";
-    position: absolute;
-    top: 0;
-    right: 7px;
-  }
-  .nav--breadcrumb .nav__item:last-of-type:after {
-    display: none;
-  }
-  .nav--breadcrumb .nav__link {
-    color: rgba(0, 0, 0, 0.75);
-  }
+.logo a {
+  display: block;
+  height: 118px;
+  width: 118px;
+}
+
+.nav--breadcrumb {
+  font-size: 12px;
+  /* [4] */
+}
+
+.nav--breadcrumb .nav__item {
+  color: #000000;
+  padding-right: 26px;
+  position: relative;
+}
+
+.nav--breadcrumb .nav__item:after {
+  display: block;
+  content: "\003e";
+  position: absolute;
+  top: 0;
+  right: 7px;
+}
+
+.nav--breadcrumb .nav__item:last-of-type:after {
+  display: none;
+}
+
+.nav--breadcrumb .nav__link {
+  color: rgba(0, 0, 0, 0.75);
+}
 
 
 .resource__footer {
-    /**
+  /**
      * Force apply font-family, font-style, font-weight
      */
-    /**
+  /**
      * Selectively apply font-family, font-style and font-weights that differ from
      * the base settings
      */
-    font-weight: 700;
-    letter-spacing: 0;
-    padding: 26px 26px 19.5px;
-    text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0;
+  padding: 26px 26px 19.5px;
+  text-transform: uppercase;
 }
 
 .resource__footer a {
-    text-decoration: none;
+  text-decoration: none;
 }
+
 .resource--two-column .resource__footer {
-    /* [2b] */
-    bottom: 0;
-    left: 0;
-    position: absolute;
-  }
+  /* [2b] */
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
 
-  .resource--post .resource__header, .resource--post .resource__body, .resource--post .resource__footer {
-    padding: 0;
-  }
-  .resource--post .resource__footer {
-    padding-top: 26px;
-  }
+.resource--post .resource__header,
+.resource--post .resource__body,
+.resource--post .resource__footer {
+  padding: 0;
+}
 
-  .gform_wrapper .button, .resource__footer, .resource--small .resource__meta, .resource--small .resource__body, .podcast-banner__title small, .btn, .nav-links > div a, .learn-more, .meta-block .icon, .section-heading, .screen-reader-text, .post__meta, .post__body figcaption, .site-footer__copyright {
-    font-size: 10px;
-    font-size: 0.85714rem;
-    /**
-     * Media query adjustments.
-     */
-  }
+.resource--post .resource__footer {
+  padding-top: 26px;
+}
 
-  .default-text, .resource--small .resource__title, .nav--social .nav__link, .meta-block {
-    font-size: 14px;
-    font-size: 1rem;
-    /**
-     * Media query adjustments.
-     */
-  }
-
+.gform_wrapper .button,
+.resource__footer,
+.resource--small .resource__meta,
+.resource--small .resource__body,
+.podcast-banner__title small,
+.btn,
+.nav-links>div a,
+.learn-more,
+.meta-block .icon,
+.section-heading,
+.screen-reader-text,
+.post__meta,
+.post__body figcaption,
+.site-footer__copyright {
+  font-size: 10px;
+  font-size: 0.85714rem;
   /**
+     * Media query adjustments.
+     */
+}
+
+.default-text,
+.resource--small .resource__title,
+.nav--social .nav__link,
+.meta-block {
+  font-size: 14px;
+  font-size: 1rem;
+  /**
+     * Media query adjustments.
+     */
+}
+
+/**
  * Anchors
  * -------------------------------------//
  */
 a {
-    color: #CC4E46;
-  }
-  a[href]:hover, a[href]:focus {
-    color: #000000;
-  }
-  a:visited {
-    color: #CC4E46;
-  }
+  color: #CC4E46;
+}
 
-  .nav--primary .nav__item {
-    border-bottom: 1px solid #E9E9E9;
-    display: block;
-    margin-bottom: 13px;
-    padding: 3.25px 0;
-    /**
+a[href]:hover,
+a[href]:focus {
+  color: #000000;
+}
+
+a:visited {
+  color: #CC4E46;
+}
+
+.nav--primary .nav__item {
+  border-bottom: 1px solid #E9E9E9;
+  display: block;
+  margin-bottom: 13px;
+  padding: 3.25px 0;
+  /**
      * Media query adjustments
      */
-  }
-  .nav--primary .nav__item:last-of-type {
-    border: none;
-  }
+}
 
-  .nav--breadcrumb {
-    /* [4] */
-  }
-  .nav--breadcrumb .nav__item {
-    color: #000000;
-    padding-right: 26px;
-    position: relative;
-  }
-  .nav--breadcrumb .nav__item:after {
-    display: block;
-    content: "\003e";
-    position: absolute;
-    top: 0;
-    right: 7px;
-  }
-  .nav--breadcrumb .nav__item:last-of-type:after {
-    display: none;
-  }
+.nav--primary .nav__item:last-of-type {
+  border: none;
+}
 
-  .nav--secondary .nav__item {
-    display: inline-block;
-    margin: 0 26px;
-  }
-  .site-footer .nav--secondary {
-    /* [1] */
-    float: left;
-    margin-bottom: 39px;
-  }
+.nav--breadcrumb {
+  /* [4] */
+}
 
-  ul.grid-row,
+.nav--breadcrumb .nav__item {
+  color: #000000;
+  padding-right: 26px;
+  position: relative;
+}
+
+.nav--breadcrumb .nav__item:after {
+  display: block;
+  content: "\003e";
+  position: absolute;
+  top: 0;
+  right: 7px;
+}
+
+.nav--breadcrumb .nav__item:last-of-type:after {
+  display: none;
+}
+
+.nav--secondary .nav__item {
+  display: inline-block;
+  margin: 0 26px;
+}
+
+.site-footer .nav--secondary {
+  /* [1] */
+  float: left;
+  margin-bottom: 39px;
+}
+
+ul.grid-row,
 ol.grid-row {
   padding-left: 0;
   list-style: none;
 }
 
 .nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .nav ul > li,
-  .nav ul > li > a {
-    display: inline-block;
-    *display: inline;
-    zoom: 1;
-  }
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .site-footer {
-    background-color: #FFFFFF;
-    padding: 52px 19.5px 19.5px;
-    /**
+.nav ul>li,
+.nav ul>li>a {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+}
+
+.site-footer {
+  background-color: #FFFFFF;
+  padding: 52px 19.5px 19.5px;
+  /**
      * Media query adjustments.
      *
      * We increase the site footer padding at breakpoint 3.
      */
-  }
+}
