@@ -1,0 +1,62 @@
+.hg__header {
+    grid-area: header;
+    background-color: slategrey;
+}
+.hg__footer {
+    grid-area: footer;
+    background-color: silver;
+}
+
+.hg__main {
+    grid-area: main;
+    background-color: white;
+}
+
+.hg__left {
+    grid-area: navigation;
+    background-color: skyblue;
+}
+
+.hg__right {
+    grid-area: ads;
+    background-color: beige;
+}
+
+.hg {
+    display: grid;
+    grid-template-areas:
+    "navigation header header"
+    "navigation main ads"
+    "footer footer footer";
+    grid-template-columns: 256px 1fr 256px;
+    grid-template-rows: 40px 1fr 30px;
+    min-height: 100vh;
+}
+body {
+    background-color:aliceblue;
+    margin: 0 auto;
+    width: 80em;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+
+}
+
+@media screen and (max-width: 1280px) {
+    .hg {
+        grid-template-areas:
+        "navigation header"
+        "navigation main"
+        "navigation ads"
+        "footer footer";
+        grid-template-columns: 256px 1fr;
+        grid-template-rows: 40px 1fr 50px 30px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .hg {
+        grid-template-areas: "header" "navigation" "main" "ads" "footer";
+        grid-template-columns: 100%;
+        grid-template-rows: 40px 80px 1fr 50px 30px;
+    }
+}
