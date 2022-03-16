@@ -6,6 +6,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
 /* Style the header */
 .header {
     background-color: #f1f1f1;
@@ -18,18 +24,18 @@ body {
 .column {
     float: left;
     padding: 10px;
-    height: 300px;
+ 
     /* Should be removed. Only for demonstration */
 }
 
 /* Left and right column */
 .column.side {
-    width: 25%;
+    width: 33%;
 }
 
 /* Middle column */
 .column.middle {
-    width: 50%;
+    width: 34%;
 }
 
 /* Clear floats after the columns */
