@@ -19,7 +19,7 @@ A GitHub account for storing and rendering static HTML, CSS and JS codes. Downlo
 
 > GitHub Pages is designed to host project pages directly from a GitHub repository. GitHub Pages is a static site hosting service and doesn't support server-side code such as, PHP, Ruby, or Python. **Other Limitations:** Github Pages does not permits data to be written back to the host by the javascripts.
 
-## References
+### References
 
 * <http://blog.teamtreehouse.com/top-5-learning-tips>
 * <http://www.makeuseof.com/tag/8-tried-and-true-tips-for-learning-how-to-code/>
